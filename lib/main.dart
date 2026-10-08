@@ -467,7 +467,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     style: const TextStyle(
                       color: Colors.white,
                       fontSize: 42,
-                      fontWeight: FontWeight.black,
+                      fontWeight: FontWeight.w900,
                     ),
                   ),
                 ],
@@ -709,7 +709,7 @@ class _AddExpenseSheetState extends State<AddExpenseSheet> {
               autofocus: true,
               style: const TextStyle(fontSize: 24, color: Colors.white),
               decoration: const InputDecoration(
-                labelText: 'Amount ($)',
+                labelText: 'Amount (\$)',
                 prefixIcon: Icon(Icons.attach_money, color: Color(0xFFEF9A9A)),
                 hintText: '0.00',
               ),
