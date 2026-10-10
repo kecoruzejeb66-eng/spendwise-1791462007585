@@ -26,6 +26,15 @@ def main():
     with io.open(MANIFEST, encoding="utf-8") as handle:
         source = handle.read()
     patched = re.sub(r'android:label="[^"]*"', 'android:label="%s"' % safe, source, count=1)
+    # A release APK has no internet permission by default, which would cut the app off from
+    # its own backend and from any web page it opens.
+    if "android.permission.INTERNET" not in patched:
+        patched = re.sub(
+            r"<application\b",
+            '<uses-permission android:name="android.permission.INTERNET" />\n    <application',
+            patched,
+            count=1,
+        )
     with io.open(MANIFEST, "w", encoding="utf-8") as handle:
         handle.write(patched)
     print("App label set to: %s" % name)
