@@ -1,5 +1,8 @@
 name: Build APK
-on: [push]
+on:
+  push:
+    paths:
+      - 'lib/main.dart'
 
 permissions:
   contents: write
