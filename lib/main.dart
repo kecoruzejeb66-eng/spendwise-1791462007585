@@ -810,7 +810,6 @@ class _HomeScreenState extends State<HomeScreen> {
                               },
                               child: Card(
                                 margin: const EdgeInsets.only(bottom: 10),
-                                child: ListTile,
                                 child: InkWell(
                                   borderRadius: BorderRadius.circular(16),
                                   onTap: () =>
@@ -1248,9 +1247,11 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                     ),
                     const SizedBox(height: 12),
                     if (catTotals.isEmpty)
-                      const Center(
+                      const Padding(
                         padding: EdgeInsets.symmetric(vertical: 40),
-                        child: Text('No spending data to display yet.'),
+                        child: Center(
+                          child: Text('No spending data to display yet.'),
+                        ),
                       )
                     else
                       ...catTotals.entries.map((entry) {
@@ -1425,6 +1426,12 @@ class SettingsScreen extends StatelessWidget {
     );
   }
 }
+
+// ---------------------------------------------------------------------------
+// Built-in backend — accounts and data API, provided by Danger World Builder.
+// Do not edit or redefine this class; use it from your screens.
+// ---------------------------------------------------------------------------
+
 
 // ---------------------------------------------------------------------------
 // Built-in backend — accounts and data API, provided by Danger World Builder.
